@@ -252,8 +252,8 @@ def weather():
         weather()
     else:
         talk(
-            'the temperature of {city} is {temp} degree celcius with {hum} percent of humidity and {wind} meter per '
-            'second.'.format(city=city,
+            'the temperature of {city} is {temp} degree celcius with {hum} percent of humidity and wind speed is '
+            '{wind} meter per second.'.format(city=city,
                              temp=round(report['main']['temp'] - 273.15, 2),
                              hum=report['main']['humidity'],
                              wind=report['wind']['speed']))
@@ -311,15 +311,7 @@ def do_Sandy():
         sys.exit(0)
     elif 'weather' == var:
         weather()
-    elif 'sleep' == var:
-        talk('ok vicky, am going to sleep mode. wake me up when you want me back')
-        while True:
-            command = listen()
-            try:
-                if 'wake up' in command:
-                    do_Sandy()
-            except:
-                pass
+
     time.sleep(4)
     do_Sandy()
 
